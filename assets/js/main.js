@@ -9,15 +9,22 @@ const LINKS = {
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // 0. Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // 1. Navbar Scroll effect
     const navbar = document.querySelector('.navbar');
+    let lastScroll = 0;
+
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
+        const currentScroll = window.scrollY;
+        if (currentScroll > 60) {
             navbar.classList.add('navbar-scrolled');
         } else {
             navbar.classList.remove('navbar-scrolled');
         }
-    });
+        lastScroll = currentScroll;
+    }, { passive: true });
 
     // 2. Active link highlighting & Reveal Animations (IntersectionObserver)
     const sections = document.querySelectorAll('section');
@@ -31,9 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            // Reveal effect
+            // Reveal effect (skip if reduced motion)
             if (entry.isIntersecting && entry.target.classList.contains('reveal')) {
-                entry.target.classList.add('visible');
+                if (!prefersReducedMotion) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'none';
+                }
             }
 
             // Active Menu Link
@@ -52,18 +64,25 @@ document.addEventListener('DOMContentLoaded', () => {
     reveals.forEach(r => observer.observe(r));
 
     // 3. GLightbox Initialization
-    const lightbox = GLightbox({
-        selector: '.glightbox',
-        touchNavigation: true,
-        loop: true,
-        autoplayVideos: true
-    });
+    if (typeof GLightbox !== 'undefined') {
+        const lightbox = GLightbox({
+            selector: '.glightbox',
+            touchNavigation: true,
+            loop: true,
+            autoplayVideos: true
+        });
+    }
 
     // 4. Configurar Links de Pedido
-    document.getElementById('link-ifood').href = LINKS.ifood;
-    document.getElementById('link-yooga').href = LINKS.yooga;
-    document.getElementById('link-whatsapp').href = `https://wa.me/${LINKS.whatsapp}`;
-    document.getElementById('full-menu-btn').href = `https://wa.me/${WHATSAPP}?text=Ol%C3%A1!+Gostaria+de+ver+o+card%C3%A1pio+completo+do+Quintal+do+Morumbi.`;
+    const linkIfood = document.getElementById('link-ifood');
+    const linkYooga = document.getElementById('link-yooga');
+    const linkWhatsapp = document.getElementById('link-whatsapp');
+    const fullMenuBtn = document.getElementById('full-menu-btn');
+
+    if (linkIfood) linkIfood.href = LINKS.ifood;
+    if (linkYooga) linkYooga.href = LINKS.yooga;
+    if (linkWhatsapp) linkWhatsapp.href = `https://wa.me/${LINKS.whatsapp}`;
+    if (fullMenuBtn) fullMenuBtn.href = `https://wa.me/${WHATSAPP}?text=Ol%C3%A1!+Gostaria+de+ver+o+card%C3%A1pio+completo+do+Quintal+do+Morumbi.`;
 
     const linkWaNums = document.querySelectorAll('.link-wa-num');
     linkWaNums.forEach(el => {
@@ -83,17 +102,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. Smooth Scroll Fix for Fixed Header (already handled by CSS scroll-padding-top)
-    // Mas garantimos que o fechamento do menu mobile ocorra ao clicar
+    // 6. Smooth Scroll Fix for Fixed Header — close mobile menu on click
     const navLinksList = document.querySelectorAll('.navbar-nav .nav-link');
     const menuToggle = document.getElementById('navbarContent');
-    const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
 
-    navLinksList.forEach((l) => {
-        l.addEventListener('click', () => {
-            if (window.innerWidth < 992) {
-                bsCollapse.hide();
-            }
+    if (menuToggle) {
+        const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
+        navLinksList.forEach((l) => {
+            l.addEventListener('click', () => {
+                if (window.innerWidth < 992) {
+                    bsCollapse.hide();
+                }
+            });
         });
-    });
+    }
 });
