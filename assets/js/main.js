@@ -1,14 +1,14 @@
 // ─── CONFIGURAÇÃO (editar antes de publicar) ───────────────────
-const WHATSAPP   = '55XXXXXXXXXXX'; // Substitua pelo número real
+const WHATSAPP = '55XXXXXXXXXXX'; // Substitua pelo número real
 const LINKS = {
-  ifood:    'https://ifood.com.br/...', // Substitua
-  yooga:    'https://...',              // Substitua
-  whatsapp: WHATSAPP
+    ifood: 'https://ifood.com.br/...', // Substitua
+    yooga: 'https://...',              // Substitua
+    whatsapp: WHATSAPP
 };
 // ──────────────────────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // 1. Navbar Scroll effect
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
@@ -64,34 +64,21 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('link-yooga').href = LINKS.yooga;
     document.getElementById('link-whatsapp').href = `https://wa.me/${LINKS.whatsapp}`;
     document.getElementById('full-menu-btn').href = `https://wa.me/${WHATSAPP}?text=Ol%C3%A1!+Gostaria+de+ver+o+card%C3%A1pio+completo+do+Quintal+do+Morumbi.`;
-    
+
     const linkWaNums = document.querySelectorAll('.link-wa-num');
     linkWaNums.forEach(el => {
         el.href = `https://wa.me/${WHATSAPP}`;
         el.textContent = `wa.me/${WHATSAPP}`;
     });
 
-    // 5. Formulário de Reserva para WhatsApp
-    const reservaForm = document.getElementById('reserva-form');
-    if (reservaForm) {
-        reservaForm.addEventListener('submit', (e) => {
+    // 5. Botão de Reserva para WhatsApp
+    const btnWaReserva = document.querySelector('.btn-wa-reserva');
+    if (btnWaReserva) {
+        btnWaReserva.addEventListener('click', (e) => {
             e.preventDefault();
-            
-            const formData = new FormData(reservaForm);
-            const data = Object.fromEntries(formData.entries());
-            
-            const mensagem = `*Nova Solicitação de Reserva — Quintal do Morumbi*\n\n` +
-                             `*Nome:* ${data.nome}\n` +
-                             `*WhatsApp:* ${data.whatsapp}\n` +
-                             `*Data:* ${data.data}\n` +
-                             `*Horário:* ${data.horario}\n` +
-                             `*Pessoas:* ${data.pessoas}\n` +
-                             `*Evento:* ${data.tipo}\n` +
-                             `*Mensagem:* ${data.mensagem || 'Nenhuma'}`;
-            
+            const mensagem = `Olá! Gostaria de solicitar uma reserva para um evento no Quintal do Morumbi.`;
             const encodedMsg = encodeURIComponent(mensagem);
             const waUrl = `https://wa.me/${WHATSAPP}?text=${encodedMsg}`;
-            
             window.open(waUrl, '_blank');
         });
     }
@@ -100,8 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mas garantimos que o fechamento do menu mobile ocorra ao clicar
     const navLinksList = document.querySelectorAll('.navbar-nav .nav-link');
     const menuToggle = document.getElementById('navbarContent');
-    const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle:false});
-    
+    const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
+
     navLinksList.forEach((l) => {
         l.addEventListener('click', () => {
             if (window.innerWidth < 992) {
