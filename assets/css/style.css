@@ -145,9 +145,10 @@ img {
    NAVBAR
    ═══════════════════════════════════════ */
 .navbar {
-    padding: 18px 0;
+    padding: 12px 0;
     background: transparent;
     transition: all var(--t-med) var(--ease-natural);
+    z-index: 1050;
 }
 
 .navbar-scrolled {
@@ -272,16 +273,21 @@ img {
     background-size: cover;
     background-attachment: fixed;
     z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero .overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom,
-            rgba(20, 12, 6, .85) 0%,
-            rgba(20, 12, 6, .65) 50%,
-            rgba(20, 12, 6, .90) 100%);
-    z-index: -1;
+    background: rgba(15, 8, 4, .75);
+    z-index: 0;
+}
+
+.hero>.container {
+    position: relative;
+    z-index: 2;
 }
 
 .hero-tagline {
