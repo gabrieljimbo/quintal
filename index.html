@@ -12,11 +12,11 @@
     <meta name="keywords"
         content="Restaurante Morumbi, Bar Morumbi, Eventos Morumbi, Gastronomia São Paulo, Quintal do Morumbi">
 
-    <!-- Google Fonts (Retro Vintage: Abril Fatface + Merriweather) -->
+    <!-- Google Fonts: Playfair Display + Lato -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
 
     <!-- Bootstrap 5.3 CSS -->
@@ -32,13 +32,14 @@
 
 <body data-bs-spy="scroll" data-bs-target="#main-nav" data-bs-offset="100">
 
-    <!-- NAV — Header fixo -->
-    <nav id="main-nav" class="navbar navbar-expand-lg fixed-top transition-all">
+    <!-- NAV -->
+    <nav id="main-nav" class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#inicio">
-                <img src="assets/images/logo.png" alt="Quintal do Morumbi" height="55" class="nav-logo">
+                <img src="assets/images/logo.png" alt="Quintal do Morumbi" class="nav-logo">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-label="Abrir menu">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarContent">
@@ -50,12 +51,12 @@
                     <li class="nav-item"><a class="nav-link" href="#pedido">Delivery</a></li>
                     <li class="nav-item"><a class="nav-link" href="#localizacao">Contato</a></li>
                 </ul>
-                <a href="#reserva" class="btn btn-accent d-none d-lg-block px-4">Reservar Evento</a>
+                <a href="#reserva" class="btn btn-accent d-none d-lg-block">Reservar Evento</a>
             </div>
         </div>
     </nav>
 
-    <!-- #inicio — Hero Section -->
+    <!-- #inicio — Hero -->
     <section id="inicio" class="hero text-center text-white">
         <div class="overlay"></div>
         <div class="container position-relative" style="padding-top:80px">
@@ -70,7 +71,8 @@
                 <a href="#reserva" class="btn btn-accent btn-lg px-5 py-3 shadow-lg">Fazer Reserva</a>
             </div>
             <div class="scroll-down mt-5">
-                <a href="#sobre" class="text-white"><i class="bi bi-chevron-down fs-2 animate-bounce"></i></a>
+                <a href="#sobre" class="text-white" aria-label="Rolar para a próxima seção"><i
+                        class="bi bi-chevron-down fs-2 animate-bounce"></i></a>
             </div>
         </div>
     </section>
@@ -79,8 +81,8 @@
     <section id="sobre" class="section-padding bg-creme">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0 reveal">
-                    <h2 class="section-title mb-4">Mais do que um restaurante</h2>
+                <div class="col-lg-6 mb-4 mb-lg-0 reveal" data-reveal="fade-right">
+                    <h2 class="section-title text-start">Mais do que um restaurante</h2>
                     <div class="section-text">
                         <p>No coração do bairro do Morumbi nasceu um espaço pensado para algo muito maior do que apenas
                             servir comida. Nasceu o Quintal do Morumbi, um lugar criado para reunir famílias, amigos e
@@ -98,9 +100,9 @@
                             vida.</p>
                     </div>
                 </div>
-                <div class="col-lg-6 reveal">
+                <div class="col-lg-6 reveal" data-reveal="fade-left">
                     <div class="over-img-container">
-                        <img src="assets/images/sobre.jpg" alt="Ambiente Quintal do Morumbi"
+                        <img src="assets/images/sobre.jpg" alt="Ambiente acolhedor do Quintal do Morumbi"
                             class="img-fluid rounded-4 shadow-lg">
                     </div>
                 </div>
@@ -109,14 +111,13 @@
     </section>
 
     <!-- #cardapio — Cardápio -->
-    <section id="cardapio" class="section-padding">
+    <section id="cardapio" class="section-padding bg-alt">
         <div class="container">
-            <div class="text-center mb-5 reveal">
+            <div class="text-center mb-5 reveal" data-reveal="fade-up">
                 <h2 class="section-title">Nosso Cardápio</h2>
-                <div class="divider mx-auto mb-4"></div>
             </div>
 
-            <div class="reveal">
+            <div class="reveal" data-reveal="fade-up">
                 <ul class="nav nav-pills justify-content-center mb-5" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="pills-entradas-tab" data-bs-toggle="pill"
@@ -144,7 +145,7 @@
                     <!-- Entradas -->
                     <div class="tab-pane fade show active" id="pills-entradas" role="tabpanel">
                         <div class="row g-4">
-                            <div class="col-md-6 col-lg-4">
+                            <div class="col-md-6 col-lg-4 reveal" data-reveal="fade-up">
                                 <div class="card menu-card h-100">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between mb-2">
@@ -157,14 +158,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Adicionar mais itens aqui -->
                         </div>
                     </div>
 
                     <!-- Peixes -->
                     <div class="tab-pane fade" id="pills-peixes" role="tabpanel">
                         <div class="row g-4">
-                            <div class="col-md-6 col-lg-4">
+                            <div class="col-md-6 col-lg-4 reveal" data-reveal="fade-up">
                                 <div class="card menu-card h-100">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between mb-2">
@@ -177,7 +177,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-lg-4">
+                            <div class="col-md-6 col-lg-4 reveal" data-reveal="fade-up">
                                 <div class="card menu-card h-100">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between mb-2">
@@ -196,7 +196,7 @@
                     <!-- Carnes -->
                     <div class="tab-pane fade" id="pills-carnes" role="tabpanel">
                         <div class="row g-4">
-                            <div class="col-md-6 col-lg-4">
+                            <div class="col-md-6 col-lg-4 reveal" data-reveal="fade-up">
                                 <div class="card menu-card h-100">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between mb-2">
@@ -209,7 +209,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-lg-4">
+                            <div class="col-md-6 col-lg-4 reveal" data-reveal="fade-up">
                                 <div class="card menu-card h-100">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between mb-2">
@@ -222,7 +222,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-lg-4">
+                            <div class="col-md-6 col-lg-4 reveal" data-reveal="fade-up">
                                 <div class="card menu-card h-100">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between mb-2">
@@ -235,7 +235,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-lg-4">
+                            <div class="col-md-6 col-lg-4 reveal" data-reveal="fade-up">
                                 <div class="card menu-card h-100">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between mb-2">
@@ -261,88 +261,98 @@
         </div>
     </section>
 
-    <!-- #fotos — Galeria de Fotos -->
+    <!-- #fotos — Galeria -->
     <section id="fotos" class="section-padding bg-creme">
         <div class="container">
-            <div class="text-center mb-5 reveal">
+            <div class="text-center mb-5 reveal" data-reveal="fade-up">
                 <h2 class="section-title">Conheça nosso espaço</h2>
-                <div class="divider mx-auto"></div>
             </div>
 
-            <div class="galeria-grid reveal">
-                <div class="galeria-item">
-                    <a href="assets/images/galeria/foto-01.jpeg" class="glightbox">
-                        <img src="assets/images/galeria/foto-01.jpeg" alt="Quintal do Morumbi - foto 1"
+            <div class="galeria-grid">
+                <div class="galeria-item reveal" data-reveal="zoom-in">
+                    <a href="assets/images/galeria/foto-01.jpeg" class="glightbox"
+                        data-description="Quintal do Morumbi">
+                        <img src="assets/images/galeria/foto-01.jpeg" alt="Quintal do Morumbi - ambiente 1"
                             loading="lazy" />
                         <div class="galeria-overlay"><i class="bi bi-zoom-in"></i></div>
                     </a>
                 </div>
-                <div class="galeria-item">
-                    <a href="assets/images/galeria/foto-02.jpeg" class="glightbox">
-                        <img src="assets/images/galeria/foto-02.jpeg" alt="Quintal do Morumbi - foto 2"
+                <div class="galeria-item reveal" data-reveal="zoom-in">
+                    <a href="assets/images/galeria/foto-02.jpeg" class="glightbox"
+                        data-description="Quintal do Morumbi">
+                        <img src="assets/images/galeria/foto-02.jpeg" alt="Quintal do Morumbi - ambiente 2"
                             loading="lazy" />
                         <div class="galeria-overlay"><i class="bi bi-zoom-in"></i></div>
                     </a>
                 </div>
-                <div class="galeria-item">
-                    <a href="assets/images/galeria/foto-03.jpeg" class="glightbox">
-                        <img src="assets/images/galeria/foto-03.jpeg" alt="Quintal do Morumbi - foto 3"
+                <div class="galeria-item reveal" data-reveal="zoom-in">
+                    <a href="assets/images/galeria/foto-03.jpeg" class="glightbox"
+                        data-description="Quintal do Morumbi">
+                        <img src="assets/images/galeria/foto-03.jpeg" alt="Quintal do Morumbi - ambiente 3"
                             loading="lazy" />
                         <div class="galeria-overlay"><i class="bi bi-zoom-in"></i></div>
                     </a>
                 </div>
-                <div class="galeria-item">
-                    <a href="assets/images/galeria/foto-04.jpeg" class="glightbox">
-                        <img src="assets/images/galeria/foto-04.jpeg" alt="Quintal do Morumbi - foto 4"
+                <div class="galeria-item reveal" data-reveal="zoom-in">
+                    <a href="assets/images/galeria/foto-04.jpeg" class="glightbox"
+                        data-description="Quintal do Morumbi">
+                        <img src="assets/images/galeria/foto-04.jpeg" alt="Quintal do Morumbi - ambiente 4"
                             loading="lazy" />
                         <div class="galeria-overlay"><i class="bi bi-zoom-in"></i></div>
                     </a>
                 </div>
-                <div class="galeria-item">
-                    <a href="assets/images/galeria/foto-05.jpeg" class="glightbox">
-                        <img src="assets/images/galeria/foto-05.jpeg" alt="Quintal do Morumbi - foto 5"
+                <div class="galeria-item reveal" data-reveal="zoom-in">
+                    <a href="assets/images/galeria/foto-05.jpeg" class="glightbox"
+                        data-description="Quintal do Morumbi">
+                        <img src="assets/images/galeria/foto-05.jpeg" alt="Quintal do Morumbi - ambiente 5"
                             loading="lazy" />
                         <div class="galeria-overlay"><i class="bi bi-zoom-in"></i></div>
                     </a>
                 </div>
-                <div class="galeria-item">
-                    <a href="assets/images/galeria/foto-06.jpeg" class="glightbox">
-                        <img src="assets/images/galeria/foto-06.jpeg" alt="Quintal do Morumbi - foto 6"
+                <div class="galeria-item reveal" data-reveal="zoom-in">
+                    <a href="assets/images/galeria/foto-06.jpeg" class="glightbox"
+                        data-description="Quintal do Morumbi">
+                        <img src="assets/images/galeria/foto-06.jpeg" alt="Quintal do Morumbi - ambiente 6"
                             loading="lazy" />
                         <div class="galeria-overlay"><i class="bi bi-zoom-in"></i></div>
                     </a>
                 </div>
-                <div class="galeria-item">
-                    <a href="assets/images/galeria/foto-07.jpeg" class="glightbox">
-                        <img src="assets/images/galeria/foto-07.jpeg" alt="Quintal do Morumbi - foto 7"
+                <div class="galeria-item reveal" data-reveal="zoom-in">
+                    <a href="assets/images/galeria/foto-07.jpeg" class="glightbox"
+                        data-description="Quintal do Morumbi">
+                        <img src="assets/images/galeria/foto-07.jpeg" alt="Quintal do Morumbi - ambiente 7"
                             loading="lazy" />
                         <div class="galeria-overlay"><i class="bi bi-zoom-in"></i></div>
                     </a>
                 </div>
-                <div class="galeria-item">
-                    <a href="assets/images/galeria/foto-08.jpeg" class="glightbox">
-                        <img src="assets/images/galeria/foto-08.jpeg" alt="Quintal do Morumbi - foto 8"
+                <div class="galeria-item reveal" data-reveal="zoom-in">
+                    <a href="assets/images/galeria/foto-08.jpeg" class="glightbox"
+                        data-description="Quintal do Morumbi">
+                        <img src="assets/images/galeria/foto-08.jpeg" alt="Quintal do Morumbi - ambiente 8"
                             loading="lazy" />
                         <div class="galeria-overlay"><i class="bi bi-zoom-in"></i></div>
                     </a>
                 </div>
-                <div class="galeria-item">
-                    <a href="assets/images/galeria/foto-09.jpeg" class="glightbox">
-                        <img src="assets/images/galeria/foto-09.jpeg" alt="Quintal do Morumbi - foto 9"
+                <div class="galeria-item reveal" data-reveal="zoom-in">
+                    <a href="assets/images/galeria/foto-09.jpeg" class="glightbox"
+                        data-description="Quintal do Morumbi">
+                        <img src="assets/images/galeria/foto-09.jpeg" alt="Quintal do Morumbi - gastronomia 1"
                             loading="lazy" />
                         <div class="galeria-overlay"><i class="bi bi-zoom-in"></i></div>
                     </a>
                 </div>
-                <div class="galeria-item">
-                    <a href="assets/images/galeria/foto-10.jpeg" class="glightbox">
-                        <img src="assets/images/galeria/foto-10.jpeg" alt="Quintal do Morumbi - foto 10"
+                <div class="galeria-item reveal" data-reveal="zoom-in">
+                    <a href="assets/images/galeria/foto-10.jpeg" class="glightbox"
+                        data-description="Quintal do Morumbi">
+                        <img src="assets/images/galeria/foto-10.jpeg" alt="Quintal do Morumbi - gastronomia 2"
                             loading="lazy" />
                         <div class="galeria-overlay"><i class="bi bi-zoom-in"></i></div>
                     </a>
                 </div>
-                <div class="galeria-item">
-                    <a href="assets/images/galeria/foto-11.jpeg" class="glightbox">
-                        <img src="assets/images/galeria/foto-11.jpeg" alt="Quintal do Morumbi - foto 11"
+                <div class="galeria-item reveal" data-reveal="zoom-in">
+                    <a href="assets/images/galeria/foto-11.jpeg" class="glightbox"
+                        data-description="Quintal do Morumbi">
+                        <img src="assets/images/galeria/foto-11.jpeg" alt="Quintal do Morumbi - gastronomia 3"
                             loading="lazy" />
                         <div class="galeria-overlay"><i class="bi bi-zoom-in"></i></div>
                     </a>
@@ -351,20 +361,20 @@
         </div>
     </section>
 
-    <!-- #reserva — Reserva de Eventos -->
-    <section id="reserva" class="section-padding bg-dark text-white reservation-cta">
+    <!-- #reserva — Reserva -->
+    <section id="reserva" class="section-padding text-white reservation-cta">
         <div class="container">
             <div class="row justify-content-center text-center">
-                <div class="col-lg-10 reveal">
+                <div class="col-lg-10 reveal" data-reveal="fade-up">
                     <div class="cta-content p-5 rounded-5 shadow-lg">
                         <i class="bi bi-calendar-check display-1 text-accent mb-4"></i>
-                        <h2 class="display-3 fw-bold mb-4">Sua celebração começa aqui</h2>
+                        <h2 class="display-4 fw-bold mb-4" style="font-family:var(--font-display);font-style:italic">Sua
+                            celebração começa aqui</h2>
                         <p class="lead mb-5 px-lg-5">Aniversários, encontros de família ou confraternizações. <br
                                 class="d-none d-md-block"> Transforme seu momento especial em uma memória inesquecível
                             no Quintal.</p>
-
                         <div class="d-grid d-md-flex justify-content-center gap-4">
-                            <a href="#" class="btn btn-accent btn-lg px-5 py-4 fs-4 shadow-accent-hover btn-wa-reserva">
+                            <a href="#" class="btn btn-accent btn-lg px-5 py-4 fs-5 btn-wa-reserva">
                                 <i class="bi bi-whatsapp me-2"></i> Solicitar Reserva via WhatsApp
                             </a>
                         </div>
@@ -377,61 +387,67 @@
 
     <!-- #tour — Tour 3D -->
     <section id="tour" class="section-padding bg-creme">
-        <div class="container text-center reveal">
-            <h2 class="section-title">Conheça nosso espaço antes de visitar</h2>
-            <p class="mb-5">Faça um tour virtual pelo Quintal do Morumbi</p>
+        <div class="container text-center">
+            <div class="reveal" data-reveal="fade-up">
+                <h2 class="section-title">Conheça nosso espaço antes de visitar</h2>
+            </div>
 
-            <div
-                class="tour-container ratio ratio-16x9 shadow rounded-4 overflow-hidden bg-secondary d-flex align-items-center justify-content-center">
-                <div class="text-white text-center">
-                    <i class="bi bi-box-fill display-1 mb-3"></i>
+            <div class="tour-container d-flex align-items-center justify-content-center position-relative reveal"
+                data-reveal="zoom-in">
+                <span class="tour-badge">Em breve</span>
+                <div class="text-center">
+                    <i class="bi bi-badge-3d-fill display-3 mb-3"></i>
                     <h3>Tour 3D em breve</h3>
-                    <p>Estamos preparando uma experiência incrível para você.</p>
+                    <p>Em breve você poderá explorar cada cantinho do Quintal</p>
                 </div>
-                <!-- SUBSTITUIR: cole aqui o iframe do Tour 3D (ex: Matterport) -->
             </div>
         </div>
     </section>
 
-    <!-- #pedido — Faça seu Pedido -->
-    <section id="pedido" class="section-padding">
-        <div class="container text-center reveal">
-            <h2 class="section-title mb-5">Peça agora pelo seu canal preferido</h2>
+    <!-- #pedido — Pedido -->
+    <section id="pedido" class="section-padding bg-alt">
+        <div class="container text-center">
+            <div class="reveal" data-reveal="fade-up">
+                <h2 class="section-title mb-5">Peça agora pelo seu canal preferido</h2>
+            </div>
 
             <div class="row g-4 justify-content-center">
-                <div class="col-md-4">
-                    <a href="#" id="link-ifood" class="btn btn-ifood btn-order w-100 p-4">
-                        <i class="bi bi-bicycle fs-1 mb-2"></i>
-                        <span class="d-block fw-bold fs-4">iFood</span>
+                <div class="col-md-4 reveal" data-reveal="fade-up">
+                    <a href="#" id="link-ifood" class="btn btn-ifood btn-order w-100" rel="noopener noreferrer">
+                        <i class="bi bi-bicycle"></i>
+                        <span class="order-label">iFood</span>
+                        <span class="order-sub">Pedir agora</span>
                     </a>
                 </div>
-                <div class="col-md-4">
-                    <a href="#" id="link-yooga" class="btn btn-yooga btn-order w-100 p-4">
-                        <i class="bi bi-tablet fs-1 mb-2"></i>
-                        <span class="d-block fw-bold fs-4">Yooga</span>
+                <div class="col-md-4 reveal" data-reveal="fade-up">
+                    <a href="#" id="link-yooga" class="btn btn-yooga btn-order w-100" rel="noopener noreferrer">
+                        <i class="bi bi-tablet"></i>
+                        <span class="order-label">Yooga</span>
+                        <span class="order-sub">Pedir agora</span>
                     </a>
                 </div>
-                <div class="col-md-4">
-                    <a href="#" id="link-whatsapp" class="btn btn-whatsapp btn-order w-100 p-4">
-                        <i class="bi bi-whatsapp fs-1 mb-2"></i>
-                        <span class="d-block fw-bold fs-4">WhatsApp</span>
+                <div class="col-md-4 reveal" data-reveal="fade-up">
+                    <a href="#" id="link-whatsapp" class="btn btn-whatsapp btn-order w-100" rel="noopener noreferrer">
+                        <i class="bi bi-whatsapp"></i>
+                        <span class="order-label">WhatsApp</span>
+                        <span class="order-sub">Pedir agora</span>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- #localizacao -->
     <section id="localizacao" class="section-padding bg-creme">
         <div class="container">
-            <h2 class="section-title text-center mb-5">Onde nos encontrar</h2>
+            <div class="reveal" data-reveal="fade-up">
+                <h2 class="section-title text-center">Onde nos encontrar</h2>
+            </div>
 
             <div class="row g-5 align-items-start">
-
-                <!-- Coluna de informações -->
                 <div class="col-lg-5">
                     <div class="localizacao-info">
-
-                        <div class="localizacao-item d-flex align-items-start gap-3 mb-4">
+                        <div class="localizacao-item d-flex align-items-start gap-3 mb-4 reveal" data-reveal="fade-up">
                             <i class="bi bi-geo-alt-fill fs-4 text-primary mt-1"></i>
                             <div>
                                 <h6 class="fw-bold mb-1">Endereço</h6>
@@ -440,8 +456,7 @@
                                 </p>
                             </div>
                         </div>
-
-                        <div class="localizacao-item d-flex align-items-start gap-3 mb-4">
+                        <div class="localizacao-item d-flex align-items-start gap-3 mb-4 reveal" data-reveal="fade-up">
                             <i class="bi bi-clock-fill fs-4 text-primary mt-1"></i>
                             <div>
                                 <h6 class="fw-bold mb-1">Horários</h6>
@@ -452,32 +467,26 @@
                                 </p>
                             </div>
                         </div>
-
-                        <div class="localizacao-item d-flex align-items-start gap-3 mb-4">
+                        <div class="localizacao-item d-flex align-items-start gap-3 mb-4 reveal" data-reveal="fade-up">
                             <i class="bi bi-whatsapp fs-4 text-primary mt-1"></i>
                             <div>
                                 <h6 class="fw-bold mb-1">WhatsApp</h6>
-                                <a href="https://wa.me/55XXXXXXXXXXX" target="_blank"
-                                    class="text-decoration-none text-muted link-wa-num">
-                                    (11) XXXXX-XXXX
-                                </a>
+                                <a href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener noreferrer"
+                                    class="text-decoration-none text-muted link-wa-num">(11) XXXXX-XXXX</a>
                             </div>
                         </div>
-
-                        <div class="localizacao-item d-flex align-items-start gap-3 mb-4">
+                        <div class="localizacao-item d-flex align-items-start gap-3 mb-4 reveal" data-reveal="fade-up">
                             <i class="bi bi-instagram fs-4 text-primary mt-1"></i>
                             <div>
                                 <h6 class="fw-bold mb-1">Instagram</h6>
                                 <a href="https://instagram.com/quintaldomorumbi" target="_blank"
+                                    rel="noopener noreferrer"
                                     class="text-decoration-none text-muted">@quintaldomorumbi</a>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
-                <!-- Coluna do mapa -->
-                <div class="col-lg-7">
+                <div class="col-lg-7 reveal" data-reveal="fade-left">
                     <div class="mapa-container">
                         <div
                             class="mapa-placeholder d-flex flex-column align-items-center justify-content-center text-center">
@@ -488,44 +497,42 @@
                                 clique em "Compartilhar" → "Incorporar mapa" e cole o iframe aqui.
                             </small>
                             <a href="https://maps.google.com/?q=Morumbi+S%C3%A3o+Paulo" target="_blank"
-                                class="btn btn-outline-secondary btn-sm">
-                                <i class="bi bi-box-arrow-up-right me-1"></i>
-                                Abrir no Google Maps
+                                rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">
+                                <i class="bi bi-box-arrow-up-right me-1"></i> Abrir no Google Maps
                             </a>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="py-5 bg-dark text-white">
+    <footer class="py-5 text-white">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-4 text-center text-md-start mb-4 mb-md-0">
-                    <img src="assets/images/logo.png" alt="Logo Footer" height="50" class="nav-logo-footer">
+                    <img src="assets/images/logo.png" alt="Quintal do Morumbi" height="45" class="nav-logo-footer">
+                    <p class="footer-location mb-0">Morumbi, São Paulo – SP</p>
                 </div>
                 <div class="col-md-4 text-center mb-4 mb-md-0">
                     <ul class="list-inline mb-0 footer-links">
-                        <li class="list-inline-item mx-2"><a href="#inicio"
-                                class="text-creme text-decoration-none">Início</a></li>
-                        <li class="list-inline-item mx-2"><a href="#cardapio"
-                                class="text-creme text-decoration-none">Cardápio</a></li>
-                        <li class="list-inline-item mx-2"><a href="#fotos"
-                                class="text-creme text-decoration-none">Fotos</a></li>
-                        <li class="list-inline-item mx-2"><a href="#localizacao"
-                                class="text-creme text-decoration-none">Onde</a></li>
+                        <li class="list-inline-item mx-2"><a href="#inicio" class="text-decoration-none">Início</a></li>
+                        <li class="list-inline-item mx-2"><a href="#cardapio" class="text-decoration-none">Cardápio</a>
+                        </li>
+                        <li class="list-inline-item mx-2"><a href="#fotos" class="text-decoration-none">Fotos</a></li>
+                        <li class="list-inline-item mx-2"><a href="#localizacao" class="text-decoration-none">Onde</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-md-4 text-center text-md-end">
-                    <a href="https://instagram.com/quintaldomorumbi" target="_blank" class="text-white fs-3"><i
+                    <a href="https://instagram.com/quintaldomorumbi" target="_blank" rel="noopener noreferrer"
+                        class="text-white fs-3 footer-ig" aria-label="Siga-nos no Instagram"><i
                             class="bi bi-instagram"></i></a>
                 </div>
             </div>
             <hr class="my-4 opacity-25">
-            <div class="row align-items-center small text-creme-muted text-center">
+            <div class="row align-items-center text-center copyright">
                 <div class="col-md-12">
                     <p class="mb-0">© 2025 Quintal do Morumbi. Todos os direitos reservados.</p>
                     <p class="mb-0">Desenvolvido por <span class="fw-bold">JSoluções</span></p>
@@ -535,11 +542,8 @@
     </footer>
 
     <!-- Scripts -->
-    <!-- Bootstrap 5.3 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- GLightbox JS -->
     <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
-    <!-- Custom JS -->
     <script src="assets/js/main.js"></script>
 </body>
 
